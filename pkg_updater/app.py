@@ -113,10 +113,12 @@ def main():
     parser.add_argument("--extra-index-url", default="")
     parser.add_argument("--interval", default=900, type=int)
     parser.add_argument("--delay-first", default=900, type=int)
+    parser.add_argument("--hide-window", action="store_true")
     args = parser.parse_args()
     app = QApplication([])
     window = MainWindow(app, args)
-    window.show()
+    if not args.hide_window:
+        window.show()
     sys.exit(app.exec())
 
 
